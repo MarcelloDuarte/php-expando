@@ -6,7 +6,7 @@ PHP_Expando
 How does it work
 ----------------
 
-PHP_Expando provides a autoloader that injects a metaclass property (both static and object scope). The metaclass when used gives you a reference to the an Expando Metaclass which allows you to add methods, much in the faction of prototypes in Javasript.
+PHP_Expando provides an autoloader that injects a metaclass property (both static and object scope). The metaclass when used gives you a reference to the an Expando Metaclass which allows you to add methods, much in the faction of prototypes in Javasript.
 
 Registering the loader
 ----------------------
