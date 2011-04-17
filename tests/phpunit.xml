@@ -1,0 +1,15 @@
+<phpunit bootstrap="bootstrap.php" colors="true">
+ <testsuites>
+  <testsuite name="expando">
+    <directory suffix="Test.php">./PHP</directory>
+  </testsuite>
+ </testsuites>
+ <filter>
+  <whitelist>
+   <directory>../src/PHP</directory>
+  </whitelist>
+ </filter>
+ <logging>
+  <log type="coverage-html" target="/var/www/coverage/expando" />
+ </logging>
+</phpunit>
