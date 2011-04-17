@@ -1,7 +1,7 @@
 PHP_Expando
 ===========
 
-**PHP_Expando** is a library that allows the adding methods to classes or objects using a neat closure syntax.
+**PHP_Expando** is a library that allows adding methods to classes or objects using a neat closure syntax.
 
 How does it work
 ----------------
