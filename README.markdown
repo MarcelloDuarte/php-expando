@@ -36,3 +36,25 @@ Usage with object scope
         return 'Hello, World!';
     };
     assertSame('Hello, World!', $class->hello());
+
+Append to method
+----------------
+
+    <?php
+    
+    $class = new \MyClass;
+    $class->metaclass->hello = function($name) {
+        $greeting = "Hello, $name!";
+    };
+    $class->metaclass->appendToMethod('hello', 'return $greeting;');
+    assertSame('Hello, John!', $class->hello('John'));
+
+Prepend to method
+-----------------
+
+    $class = new \MyClass;
+    $class->metaclass->hello = function($greeting) {
+        return $greeting;
+    };
+    $class->metaclass->prependToMethod('hello', '$greeting = "Hello, $greeting!";');
+    assertSame('Hello, John!', $class->hello('John'));
