@@ -76,6 +76,13 @@ class Loader
     protected $_class;
     
     /**
+     * Path to the class being loaded
+     * 
+     * @var string
+     */
+    protected $_path;
+    
+    /**
      * Loader is constructed with the class to load
      * 
      * @param string $class
@@ -83,7 +90,6 @@ class Loader
     public function __construct($class)
     {
         $this->_class = $class;
-        $this->_path = $this->extractPath();
     }
 
     /**
@@ -115,6 +121,7 @@ class Loader
             return true;
         }
 
+        $this->_path = $this->extractPath();
         $this->addProxiesAndInterceptors();
         return $this->loadClass();
     }
