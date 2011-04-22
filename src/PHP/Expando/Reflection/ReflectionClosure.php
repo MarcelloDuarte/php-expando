@@ -148,8 +148,8 @@ class ReflectionClosure extends \ReflectionFunction
      */
     private function extractSignature()
     {
-        $closureStart = '/([\$a-zA-Z0-9_\[\]\-\>]+)(\s*)(=)(\s*)(function)/i';
-        $wholeMethod = preg_replace($closureStart, '$5', $this->asString(), 1);
+        $closureStart = "/([\w\\\]*::)?([\$a-zA-Z0-9_\[\]\-\>]+)(\s*)(=)(\s*)(function)/i";
+        $wholeMethod = preg_replace($closureStart, '$6', $this->asString(), 1);
         $noBody = \str_replace($this->_body, '', $wholeMethod);
         $noBody = rtrim(rtrim(rtrim(rtrim($noBody), '};')), '{');
 
