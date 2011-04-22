@@ -6,11 +6,6 @@ require_once 'PHP/Expando/Loader.php';
 
 class MetaclassTest extends \PHPUnit_Framework_TestCase
 {
-    function setUp()
-    {
-        \PHP\Expando\Loader::register();
-    }
-
     /** @test */
     function everyClassHasAMetaclassProperty()
     {
@@ -25,16 +20,6 @@ class MetaclassTest extends \PHPUnit_Framework_TestCase
         $class->metaclass->hello = function() {
             return 'Hello, World!';
         };
-        $this->assertSame('Hello, World!', $class->hello());
-    }
-
-    /** @test */
-    function itIsPossibleToAddMethodsAtRuntime()
-    {
-        \MyClass::$metaclass->hello = function() {
-            return 'Hello, World!';
-        };
-        $class = new \MyClass;
         $this->assertSame('Hello, World!', $class->hello());
     }
 
@@ -68,10 +53,5 @@ class MetaclassTest extends \PHPUnit_Framework_TestCase
         };
         $class->metaclass->appendToMethod('hello', 'return $greeting;');
         $this->assertSame('Hello, John!', $class->hello('John'));
-    }
-
-    function tearDown()
-    {
-        \PHP\Expando\Loader::unregister();
     }
 }

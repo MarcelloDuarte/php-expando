@@ -2,15 +2,8 @@
 
 namespace Test\PHP\Expando;
 
-require_once 'PHP/Expando/Loader.php';
-
 class LoaderTest extends \PHPUnit_Framework_TestCase
 {
-    function setUp()
-    {
-        \PHP\Expando\Loader::register();
-    }
-
     /** @test */
     function itIsPossibleToLoadAClassWithConstructor()
     {
@@ -41,10 +34,5 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
         };
         $this->assertSame('Hello, World!', $class->hello());
         $this->assertSame('foo(bar)', $class->foo('bar'));
-    }
-    
-    function tearDown()
-    {
-        \PHP\Expando\Loader::unregister();
     }
 }

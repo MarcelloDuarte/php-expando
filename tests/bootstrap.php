@@ -5,3 +5,6 @@ set_include_path('.' . PATH_SEPARATOR .
                  dirname(__FILE__) .'/PHP/Expando/_files/' . PATH_SEPARATOR .
                  get_include_path());
 
+require_once 'PHP/Expando/Loader.php';
+                 
+\PHP\Expando\Loader::register();
