@@ -172,23 +172,6 @@ class ClassScope extends \PHP\Expando\Metaclass
     }
 
     /**
-     * Intercepts call from within the class intercepted. Proxies method calls
-     * to methods added to classes via its metaclass
-     * 
-     * @param string $method
-     * @param array  $args
-     * @return mixed
-     */
-    public function __call($method, $args)
-    {
-        self::assertClassMethodExists($this->_class, $method);
-        return \call_user_func_array(
-            self::$_classMethods[$this->_class][$method],
-            $args
-        );
-    }
-
-    /**
      * Checks whether the method has been added in class scope
      * 
      * @param string $class

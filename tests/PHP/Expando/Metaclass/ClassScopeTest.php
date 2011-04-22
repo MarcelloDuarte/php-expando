@@ -24,5 +24,17 @@ class ClassScopeTest extends \PHPUnit_Framework_TestCase
         $class = new \MyClass;
         $this->assertSame('Hello, John!', $class->hello('John'));
     }
+    
+    /** @test */
+    function itIsPossibleToAppendCodeToAMethod()
+    {
+        \MyClass::$metaclass->hello = function($name) {
+            $greeting = "Hello, $name!";
+        };
+        \MyClass::$metaclass->appendToMethod('hello', 'return $greeting;');
+        $class = new \MyClass;
+        $this->assertSame('Hello, John!', $class->hello('John'));
+    }
+    
 }
 
