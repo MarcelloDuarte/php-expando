@@ -148,8 +148,8 @@ class ClassScope extends \PHP\Expando\Metaclass
      * can only prepend code to methods you have dynamically added to the
      * class
      * 
-     * @param unknown_type $method
-     * @param unknown_type $codeToPrepend
+     * @param string $method
+     * @param string $codeToPrepend
      * 
      * @return \PHP\Expando\ClassScope
      */
@@ -189,10 +189,10 @@ class ClassScope extends \PHP\Expando\Metaclass
     }
 
     /**
-     * Enter description here ...
+     * Checks whether the method has been added in class scope
      * 
-     * @param unknown_type $class
-     * @param unknown_type $method
+     * @param string $class
+     * @param string $method
      * @throws BadMethodCall
      */
     public static function assertClassMethodExists($class, $method)
